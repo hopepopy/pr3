@@ -1,0 +1,37 @@
+﻿<Window x:Class="Pract3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pract3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Margin="5,5,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button x:Name="OpenButton" Grid.Row="0" Grid.ColumnSpan="2" Content="Открыть папку с музыкой" Click="OpenButton_Click"/>
+        <ListBox x:Name="SongsListBox" Grid.Row="1" Grid.Column="0" Grid.RowSpan="6" SelectionChanged="SongsListBox_SelectionChanged" />
+        <RibbonButton x:Name="BackButton" Grid.Row="1" Grid.Column="1" Label="Назад" LargeImageSource="/back-arrow-1767507-1502574.png" Click="BackButton_Click" />
+        <RibbonButton x:Name="PlayButton" Grid.Row="2" Grid.Column="1" Label="Играть" LargeImageSource="/1200px-OOjs_UI_icon_play-ltr.svg.png" SmallImageSource="/1200px-OOjs_UI_icon_play-ltr.svg.png" Click="PlayButton_Click" />
+        <RibbonButton x:Name="NextButton" Grid.Row="3" Grid.Column="1" Label="Вперед" LargeImageSource="/next-arrow-1767507-1502574.png" Click="NextButton_Click" />
+        <RibbonButton x:Name="RepeatButton" Grid.Row="5" Grid.Column="1" Label="Повтор" LargeImageSource="/repeat.png" Click="RepeatButton_Click" />
+        <RibbonButton x:Name="ShuffleButton" Grid.Row="6" Grid.Column="1" Label="Случайно" LargeImageSource="/shuffle.png" Click="ShuffleButton_Click" />
+        <Slider x:Name="TimeSlider" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" ValueChanged="TimeSlider_ValueChanged" />
+        <TextBlock x:Name="CurrentTimeText" Grid.Row="8" Grid.Column="0" Text="0:00" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBlock x:Name="MaxTimeText" Grid.Row="8" Grid.Column="1" Text="0:00" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <MediaElement x:Name="PlayerElement" LoadedBehavior="Manual" MediaOpened="PlayerElement_MediaOpened" MediaEnded="PlayerElement_MediaEnded" />
+    </Grid>
+</Window>
